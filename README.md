@@ -1,4 +1,4 @@
-# Manual segmentation on the SCC
+# Manual segmentation of microtissue on the SCC
 
 ## Table of contents
 
@@ -18,14 +18,14 @@ The [Shared Computing Cluster](https://www.bu.edu/tech/support/research/computin
 <p align = "center">
 <img alt="launch_desktop" src="figures/launch_desktop.png" width="40%" />
 
-After you have filled out all the information accordingly, you can click ``Launch``.
+After you have filled out all the information accordingly, you can click ``Launch``. Note that your entries might not be exactly like mine.
 
 ## Package installation instructions <a name="install"></a>
 
 Once you've connected to the SCC desktop interactive session, you should see the screen below, with a [command-line interface](https://en.wikipedia.org/wiki/Command-line_interface) terminal.
 
 <p align = "center">
-<img alt="desktop_initial" src="figures/desktop_initial" width="40%" />
+<img alt="desktop_initial" src="figures/desktop_initial.png" width="100%" />
 
 Here, you can input different commands to interact with the computer. We need to setup a working [Conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html) before we can use our codes.
 
@@ -73,7 +73,7 @@ conda install -c conda-forge napari pyqt
 With all the packages install, we can now move on to manually segmenting the tissue mask, pillars mask, and wound mask.
 
 ### Reminder before running segmentation code
-1. Make sure you're in the correct folder with the necessary code ``manual_tissue_mask.py`` and data (you can check with me before getting started). Type ``ls`` to get check folder contents.
+1. Make sure you're in the correct folder with the necessary code ``manual_segmentation.py`` and data (you can check with me before getting started). Type ``ls`` to get check folder contents.
 2. If you haven't activated an environment, do so with:
 ```bash
 conda activate wound-compute-env
@@ -87,26 +87,33 @@ python manual_segmentation.py
 2. You will be prompted to enter a number for the dataset. Select the number corresponding with the dataset you're working on.
 <p align = "center">
 <img alt="dataset_selection" src="figures/dataset_selection.png" width="40%" />
+  
 4. The terminal will display a list of folders, with the indexing to the left. You can now enter a number corresponding to the sample you want to segment. For example, to work on sample ``.../s002_A01``, you can enter the number 1.
 <p align = "center">
 <img alt="dataset_indexing" src="figures/dataset_indexing.png" width="40%" />
 <p align = "center">
 <img alt="sample_selection" src="figures/sample_selection.png" width="40%" />
+  
 5. Now a napari screen will pop up with the selected sample. You can click on the label option to start segmenting.
 <p align = "center">
 <img alt="select_label_option" src="figures/select_label_option.png" width="60%" />
+  
 6. Here, you can select the Pan/Zoom option on the top to move (aka pan) the image around with your mouse, or zoom with your scroll wheel. You can also slide the slider on the bottom to switch between frames.
 <p align = "center">
 <img alt="pan_zoom" src="figures/pan_zoom.png" width="60%" />
+  
 7. To segment the tissue mask, select the paint brush tool. Make sure ``label`` is set to 1 for tissue mask. Now you can outline the microtissue.
 <p align = "center">
 <img alt="paint_brush_tissue" src="figures/paint_brush_tissue.png" width="60%" />
+  
 8. To complete the tissue segmentation, select the fill bucket tool to fill in the outline. Make sure ``label`` is set to 1 for tissue mask.
 <p align = "center">
 <img alt="bucket_tissue" src="figures/bucket_tissue.png" width="60%" />
+  
 9. Similarly, using a combination of the paint brush tool and the fill bucket tool, we can segment both the pillars and the wound. For pillars, set the ``label`` to 2. For the wound, set the ``label`` to 3. **Note**: you can change the opacity of the label layer to see the microtissue and pillars clearer.
 <p align = "center">
 <img alt="complete_labeling_one_frame" src="figures/complete_labeling_one_frame.png" width="60%" />
+  
 10. For each sample, repeat steps 7 through 9 for every five frames (i.e., frame 0, frame 4, frame 9, frame 14, etc.)
 11. After segmentation is completed, you can X out of napari. You should received a message indicating that your work is saved.
 <p align = "center">
