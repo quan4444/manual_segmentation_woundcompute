@@ -5,8 +5,8 @@ from scipy.spatial import distance
 from skimage.transform import rotate
 from scipy import ndimage
 from typing import List, Tuple, Union
-from woundcompute import compute_values as com
-from woundcompute import segmentation as seg
+from manual_segmentation import compute_values as com
+from manual_segmentation import segmentation as seg
 
 
 def compute_distance(x1: Union[int, float], x2: Union[int, float], y1: Union[int, float], y2: Union[int, float]) -> Union[int, float]:

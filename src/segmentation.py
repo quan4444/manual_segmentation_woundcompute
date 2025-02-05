@@ -7,7 +7,7 @@ from skimage import measure, morphology
 from skimage.filters import gabor_kernel, threshold_otsu, threshold_multiotsu, rank
 from skimage.measure import label, regionprops
 from typing import List, Union
-from woundcompute import compute_values as com
+from manual_segmentation import compute_values as com
 
 
 def uint16_to_uint8(img_16: np.ndarray) -> np.ndarray:

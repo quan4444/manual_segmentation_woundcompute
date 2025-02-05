@@ -5,7 +5,7 @@ from scipy.spatial import distance
 from shapely.geometry import Point
 from skimage import exposure, img_as_ubyte
 from typing import List, Union
-from woundcompute import segmentation as seg
+from manual_segmentation import segmentation as seg
 
 
 def get_tracking_param_dicts() -> dict:

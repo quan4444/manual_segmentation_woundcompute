@@ -9,9 +9,9 @@ import time
 from typing import List
 import yaml
 from skimage.transform import rescale
-from woundcompute import segmentation as seg
-from woundcompute import compute_values as com
-from woundcompute import texture_tracking as tt
+from manual_segmentation import segmentation as seg
+from manual_segmentation import compute_values as com
+from manual_segmentation import texture_tracking as tt
 
 
 def hello_wound_compute() -> str:
