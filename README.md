@@ -22,6 +22,8 @@ After you have filled out all the information accordingly, you can click ``Launc
 
 ## Package installation instructions <a name="install"></a>
 
+**THIS SECTION IS NOT WORKING CURRENTLY**
+
 Once you've connected to the SCC desktop interactive session, you should see the screen below, with a [command-line interface](https://en.wikipedia.org/wiki/Command-line_interface) terminal.
 
 <p align = "center">
