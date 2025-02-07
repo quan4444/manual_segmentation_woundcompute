@@ -22,8 +22,6 @@ After you have filled out all the information accordingly, you can click ``Launc
 
 ## Package installation instructions <a name="install"></a>
 
-**THIS SECTION IS NOT WORKING CURRENTLY**
-
 Once you've connected to the SCC desktop interactive session, you should see the screen below, with a [command-line interface](https://en.wikipedia.org/wiki/Command-line_interface) terminal.
 
 <p align = "center">
@@ -39,13 +37,13 @@ cd /projectnb/lejlab2/quan/example
 ```bash
 git clone https://github.com/elejeune11/woundcompute.git
 ```
-3. Type in the terminal to create a virtual environment with conda (mamba also works and will be faster):
+3. Type in the terminal to create a virtual environment with conda (using ``mamba`` in place of ``conda`` also works and will be faster):
 ```bash
-conda create --name wound-compute-env python=3.9.13
+conda create --name manual_segmentation python=3.9.13
 ```
 4. Type in the terminal to activate your virtual environment:
 ```bash
-conda activate wound-compute-env
+conda activate manual_segmentation
 ```
 5. Check to make sure that the correct version of python is running (should be ``3.9.13``)
 ```bash
@@ -56,19 +54,23 @@ python --version
 pip install --upgrade pip setuptools wheel
 ```
 7. Navigate to the folder in WoundCompute with the ``pyproject.toml``. Type the command ``ls`` and make sure that the file ``pyproject.toml`` is in the current directory.
-8. Now, create an editable install of wound compute:
+8. Now, create an editable install of WoundCompute:
 ```bash
 pip install -e .
 ```
-9. If you would like to see what packages this has installed, you can type ``pip list``.
-10. You can test that the code is working with pytest (all tests should pass):
+9. One of the required package inside WoundCompute is ``opencv-python``. This package is not compatible with our main package use for manual segmentation (``napari``). We need to uninstall it:
 ```bash
-pytest -v --cov=woundcompute  --cov-report term-missing
+pip uninstall opencv-python
 ```
-11. Finally, you need to install [napari](https://napari.org/stable/) for visualization and manual segmentation:
+10. Then, we will install a version that is compatible with ``napari``:
+```bash
+pip install opencv-python-headless==4.6.0.66
+```
+11. Finally, we need to install [napari](https://napari.org/stable/) for visualization and manual segmentation:
 ```bash
 conda install -c conda-forge napari pyqt
 ```
+12. If you would like to see all the packages that have been install, you can type ``conda list``.
 
 ## Manual segmentation <a name="install"></a>
 
@@ -78,7 +80,7 @@ With all the packages install, we can now move on to manually segmenting the tis
 1. Make sure you're in the correct folder with the necessary code ``manual_segmentation.py`` and data (you can check with me before getting started). Type ``ls`` to get check folder contents.
 2. If you haven't activated an environment, do so with:
 ```bash
-conda activate wound-compute-env
+conda activate manual_segmentation
 ```
 
 ### Segmentation
